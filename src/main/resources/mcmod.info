@@ -1,18 +1,18 @@
 [
   {
-    "modid": "${id}",
-    "name": "${name}",
-    "description": "",
-    "version": "${version}",
-    "mcversion": "1.8.9",
-    "url": "",
+    "modid": "coolcapybaras",
+    "name": "Cool Capybaras",
+    "description": "Cool Capybaras, but cooler",
+    "version": "1.0.0",
+    "logoFile": "",
+    "mcversion": "1.12.2",
     "updateUrl": "",
     "authorList": [
-      "Your Name"
+      "nxtdaydelivery"
     ],
-    "credits": "",
-    "logoFile": "",
-    "screenshots": [],
-    "dependencies": []
+    "dependencies": [],
+    "dependants": [],
+    "requiredMods": [],
+    "useDependencyInformation": "true"
   }
 ]

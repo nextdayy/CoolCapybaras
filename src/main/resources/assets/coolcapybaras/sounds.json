@@ -1,0 +1,81 @@
+{
+  "entity.capybara.hurt": {
+      "category": "entity",
+      "subtitle": "capybara slap",
+      "sounds": [
+        {
+          "name": "coolcapybaras:entity/capybara/hurt", "stream": "true"
+        }
+      ]
+  },
+  "entity.capybara.death": {
+    "category": "entity",
+    "subtitle": "u killed a capybara? how could u? *uwu*",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/capybara/death", "stream": "true", "pitch": 1.0, "volume": 10.0
+      }
+    ]
+  },
+  "entity.capybara.ambient": {
+    "category": "entity",
+    "subtitle": "capybara vibes",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/capybara/ambient1", "stream": "true"
+      },
+      {
+        "name": "coolcapybaras:entity/capybara/ambient2", "stream": "true"
+      },
+      {
+        "name": "coolcapybaras:entity/capybara/ambient3", "stream": "true"
+      }
+    ]
+  },
+  "entity.gort.spawn": {
+    "category": "entity",
+    "subtitle": "gort pulls up",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/gort/spawn", "stream": "true", "pitch": 1.0
+      }
+    ]
+  },
+  "entity.gort.step": {
+    "category": "entity",
+    "subtitle": "gort moves",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/gort/step", "stream": "true"
+      }
+    ]
+  },
+  "entity.gort.hurt": {
+    "category": "entity",
+    "subtitle": "gort got slap",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/gort/hurt", "stream": "true"
+      }
+    ]
+  },
+  "entity.gort.death": {
+    "category": "entity",
+    "subtitle": "gort exits the chat",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/gort/death", "stream": "true"
+      }
+    ]
+  },
+  "entity.gort.shoot": {
+    "category": "entity",
+    "subtitle": "gort shoots",
+    "sounds": [
+      {
+        "name": "coolcapybaras:entity/gort/shoot", "stream": "true"
+      }
+    ]
+  }
+
+}

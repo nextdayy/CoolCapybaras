@@ -28,24 +28,12 @@ blossom {
 }
 
 version = mod_version
-group = "cc.polyfrost"
+group = "com.nextdaydelivery"
 base {
     archivesName.set("$mod_id-$platform")
 }
 loom {
     noServerRunConfigs()
-    if (project.platform.isLegacyForge) {
-        launchConfigs.named("client") {
-            arg("--tweakClass", "cc.polyfrost.oneconfigwrapper.OneConfigWrapper")
-            property("mixin.debug.export", "true")
-        }
-    }
-    if (project.platform.isForge) {
-        forge {
-            mixinConfig("mixins.${mod_id}.json")
-        }
-    }
-    mixin.defaultRefmapName.set("mixins.${mod_id}.refmap.json")
 }
 
 val shade: Configuration by configurations.creating {
@@ -60,20 +48,6 @@ sourceSets {
 
 repositories {
     maven("https://repo.polyfrost.cc/releases")
-}
-
-dependencies {
-    modCompileOnly("cc.polyfrost:oneconfig-$platform:0.1.0-alpha+")
-    
-    //compileOnly("org.spongepowered:mixin:0.7.11-SNAPSHOT")
-
-    val loader = when {
-        platform.isLegacyForge -> "launchwrapper"
-        platform.isModLauncher -> "modlauncher"
-        platform.isFabric -> "prelaunch"
-        else -> throw IllegalStateException("Unknown platform: $platform")
-    }
-    shade("cc.polyfrost:oneconfig-wrapper-$loader:1.0.0-alpha+")
 }
 
 tasks.processResources {
@@ -115,14 +89,6 @@ tasks.processResources {
     }
 }
 
-afterEvaluate {
-    if (rootProject.file("LICENSE-TEMPLATE").exists()) {
-        logger.error("-------------------------------------------------------")
-        logger.error("PLEASE REPLACE THE `LICENSE-TEMPLATE` FILE WITH YOUR OWN LICENSE")
-        logger.error("-------------------------------------------------------")
-    }
-}
-
 tasks {
     withType(Jar::class.java) {
         if (project.platform.isFabric) {
@@ -151,9 +117,6 @@ tasks {
                 mapOf(
                     "ModSide" to "CLIENT",
                     "ForceLoadAsMod" to true,
-                    "TweakOrder" to "0",
-                    "MixinConfigs" to "mixins.${mod_id}.json",
-                    "TweakClass" to "cc.polyfrost.oneconfigwrapper.OneConfigWrapper"
                 )
             )
         }
