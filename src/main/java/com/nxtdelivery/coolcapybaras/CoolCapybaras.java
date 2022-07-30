@@ -6,15 +6,14 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -37,17 +36,9 @@ public class CoolCapybaras {
     public static final String MODID = "@ID@";
     public static final String VERSION = "@VER@";
     public static final SimpleNetworkWrapper PACKET_HANDLER;
-    @SidedProxy(
-            clientSide = "com.nxtdelivery.coolcapybaras.ClientProxyCoolCapybaras",
-            serverSide = "com.nxtdelivery.coolcapybaras.ServerProxyCoolCapybaras"
-    )
-    public static IProxyCoolCapybaras proxy;
     @Instance(MODID)
     public static CoolCapybaras INSTANCE;
     public ElementsCoolCapybaras elements = new ElementsCoolCapybaras();
-
-    public CoolCapybaras() {
-    }
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -58,24 +49,17 @@ public class CoolCapybaras {
         this.elements.preInit(event);
         MinecraftForge.EVENT_BUS.register(this.elements);
         this.elements.getElements().forEach((element) -> element.preInit(event));
-        proxy.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        OBJLoader.INSTANCE.addDomain("coolcapybaras");
         this.elements.getElements().forEach((element) -> element.init(event));
-        proxy.init(event);
-    }
-
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
     }
 
     @EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
         this.elements.getElements().forEach((element) -> element.serverLoad(event));
-        proxy.serverLoad(event);
     }
 
     @SubscribeEvent
