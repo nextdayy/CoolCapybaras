@@ -1,8 +1,7 @@
 package com.nxtdelivery.coolcapybaras.entity;
 
-import com.nxtdelivery.coolcapybaras.CoolCapybaras;
 import com.nxtdelivery.coolcapybaras.ElementsCoolCapybaras;
-import net.minecraft.client.audio.SoundRegistry;
+import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -26,7 +25,6 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.jetbrains.annotations.Nullable;
 
 @ElementsCoolCapybaras.ModElement.Tag
 public class EntityCapybara extends ElementsCoolCapybaras.ModElement {
@@ -61,14 +59,14 @@ public class EntityCapybara extends ElementsCoolCapybaras.ModElement {
 
     @SideOnly(Side.CLIENT)
     public void preInit(FMLPreInitializationEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(EntityCustom.class, (renderManager) -> new RenderLiving(renderManager, new Modelcapybara(), 0.5F) {
+        RenderingRegistry.registerEntityRenderingHandler(EntityCustom.class, (renderManager) -> new RenderLiving(renderManager, new ModelCapybara(), 0.5F) {
             protected ResourceLocation getEntityTexture(Entity entity) {
                 return new ResourceLocation("coolcapybaras:textures/capybara.png");
             }
         });
     }
 
-    public static class Modelcapybara extends ModelBase {
+    public static class ModelCapybara extends ModelBase {
         private final ModelRenderer Head;
         private final ModelRenderer cube_r1;
         private final ModelRenderer cube_r2;
@@ -79,7 +77,7 @@ public class EntityCapybara extends ElementsCoolCapybaras.ModElement {
         private final ModelRenderer LeftBackLeg;
         private final ModelRenderer RightBackLeg;
 
-        public Modelcapybara() {
+        public ModelCapybara() {
             this.textureWidth = 64;
             this.textureHeight = 64;
             this.Head = new ModelRenderer(this);

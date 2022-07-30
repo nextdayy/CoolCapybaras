@@ -2,9 +2,7 @@ package com.nxtdelivery.coolcapybaras.entity;
 
 import com.nxtdelivery.coolcapybaras.ElementsCoolCapybaras;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
-import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.*;
@@ -78,7 +76,7 @@ public class EntityGort extends ElementsCoolCapybaras.ModElement {
 
     @SideOnly(Side.CLIENT)
     public void preInit(FMLPreInitializationEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(EntityCustom.class, (renderManager) -> new RenderLiving(renderManager, new ModelCapybara(), 0.5F) {
+        RenderingRegistry.registerEntityRenderingHandler(EntityCustom.class, (renderManager) -> new RenderLiving(renderManager, new EntityCapybara.ModelCapybara(), 0.5F) {
             protected ResourceLocation getEntityTexture(Entity entity) {
                 return new ResourceLocation("coolcapybaras:textures/capybara.png");
             }
@@ -88,80 +86,6 @@ public class EntityGort extends ElementsCoolCapybaras.ModElement {
                 return new ItemStack(Items.GOLDEN_CARROT, 1);
             }
         });
-    }
-
-    public static class ModelCapybara extends ModelBase {
-        private final ModelRenderer Head;
-        private final ModelRenderer cube_r1;
-        private final ModelRenderer cube_r2;
-        private final ModelRenderer cube_r3;
-        private final ModelRenderer Torso;
-        private final ModelRenderer RightFrontLeg;
-        private final ModelRenderer LeftFrontLeg;
-        private final ModelRenderer LeftBackLeg;
-        private final ModelRenderer RightBackLeg;
-
-        public ModelCapybara() {
-            this.textureWidth = 64;
-            this.textureHeight = 64;
-            this.Head = new ModelRenderer(this);
-            this.Head.setRotationPoint(0.0F, 13.0F, -6.0F);
-            this.cube_r1 = new ModelRenderer(this);
-            this.cube_r1.setRotationPoint(0.0F, 11.0F, 6.0F);
-            this.Head.addChild(this.cube_r1);
-            this.setRotationAngle(this.cube_r1, -1.5272F, 0.0F, 0.0F);
-            this.cube_r1.cubeList.add(new ModelBox(this.cube_r1, 9, 9, -4.0F, 3.0F, -17.0F, 0, 3, 3, 0.0F, false));
-            this.cube_r2 = new ModelRenderer(this);
-            this.cube_r2.setRotationPoint(0.0F, 11.0F, 6.0F);
-            this.Head.addChild(this.cube_r2);
-            this.setRotationAngle(this.cube_r2, -0.6109F, 0.0F, 0.0F);
-            this.cube_r2.cubeList.add(new ModelBox(this.cube_r2, 0, 26, -4.0F, -9.0F, -16.0F, 8, 10, 5, 0.0F, false));
-            this.cube_r3 = new ModelRenderer(this);
-            this.cube_r3.setRotationPoint(0.0F, 11.0F, 6.0F);
-            this.Head.addChild(this.cube_r3);
-            this.setRotationAngle(this.cube_r3, -1.4835F, 0.0F, 0.0F);
-            this.cube_r3.cubeList.add(new ModelBox(this.cube_r3, 9, 3, 4.1F, 3.0F, -17.2F, 0, 3, 3, 0.0F, false));
-            this.Torso = new ModelRenderer(this);
-            this.Torso.setRotationPoint(0.0F, 17.0F, 0.0F);
-            this.Torso.cubeList.add(new ModelBox(this.Torso, 0, 0, -5.0F, -4.0F, -9.0F, 10, 8, 18, 0.0F, false));
-            this.RightFrontLeg = new ModelRenderer(this);
-            this.RightFrontLeg.setRotationPoint(-2.0F, 21.0F, -7.0F);
-            this.RightFrontLeg.cubeList.add(new ModelBox(this.RightFrontLeg, 26, 26, -3.0F, 0.0F, -2.0F, 3, 3, 3, 0.0F, false));
-            this.LeftFrontLeg = new ModelRenderer(this);
-            this.LeftFrontLeg.setRotationPoint(3.0F, 22.0F, -6.0F);
-            this.LeftFrontLeg.cubeList.add(new ModelBox(this.LeftFrontLeg, 0, 0, -1.0F, -1.0F, -3.0F, 3, 3, 3, 0.0F, false));
-            this.LeftBackLeg = new ModelRenderer(this);
-            this.LeftBackLeg.setRotationPoint(2.0F, 22.0F, 6.0F);
-            this.LeftBackLeg.cubeList.add(new ModelBox(this.LeftBackLeg, 0, 6, 0.0F, -1.0F, -1.0F, 3, 3, 3, 0.0F, false));
-            this.RightBackLeg = new ModelRenderer(this);
-            this.RightBackLeg.setRotationPoint(-2.0F, 21.0F, 7.0F);
-            this.RightBackLeg.cubeList.add(new ModelBox(this.RightBackLeg, 0, 12, -3.0F, 0.0F, -2.0F, 3, 3, 3, 0.0F, false));
-        }
-
-        public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-            this.Head.render(f5);
-            this.Torso.render(f5);
-            this.RightFrontLeg.render(f5);
-            this.LeftFrontLeg.render(f5);
-            this.LeftBackLeg.render(f5);
-            this.RightBackLeg.render(f5);
-        }
-
-        public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-            modelRenderer.rotateAngleX = x;
-            modelRenderer.rotateAngleY = y;
-            modelRenderer.rotateAngleZ = z;
-        }
-
-        public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
-            super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
-            this.LeftBackLeg.rotateAngleX = MathHelper.cos(f) * -1.0F * f1;
-            this.Head.rotateAngleY = f3 / 57.295776F;
-            this.Head.rotateAngleX = f4 / 57.295776F;
-            this.RightFrontLeg.rotateAngleX = MathHelper.cos(f) * 1.0F * f1;
-            this.RightBackLeg.rotateAngleX = MathHelper.cos(f) * 1.0F * f1;
-            this.LeftFrontLeg.rotateAngleX = MathHelper.cos(f) * -1.0F * f1;
-        }
     }
 
     public static class EntityArrowCustom extends EntityTippedArrow {
