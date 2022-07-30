@@ -1,8 +1,4 @@
-# OneConfigExampleMod
-Example mod implementing OneConfig.
+A minecraft mod which adds cool capybaras and gives them sounds, i might add more things later
+1.12.2-forge
 
-## How to use
-
-- Copy the template either by using GitHub's "Use this template" feature or downloading the repo manually.
-- **Remove the license named "LICENSE-TEMPLATE" and choose a new one.**
-- Refactor the template (specifically, the modid, version and name in the gradle.properties and most of the class names) to a different name.
+fork of https://www.curseforge.com/minecraft/mc-mods/cool-capybaras
