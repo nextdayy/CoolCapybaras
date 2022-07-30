@@ -6,5 +6,5 @@ plugins {
 }
 
 preprocess {
-    "1.12.2-forge"(11202, "mcp") {}
+    "1.12.2-forge"(11202, "srg") {}
 }

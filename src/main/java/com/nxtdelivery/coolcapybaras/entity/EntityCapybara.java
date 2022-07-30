@@ -1,7 +1,6 @@
 package com.nxtdelivery.coolcapybaras.entity;
 
 import com.nxtdelivery.coolcapybaras.ElementsCoolCapybaras;
-import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -49,7 +48,6 @@ public class EntityCapybara extends ElementsCoolCapybaras.ModElement {
         ForgeRegistries.SOUND_EVENTS.register(HURT);
         ForgeRegistries.SOUND_EVENTS.register(DEATH);
         ForgeRegistries.SOUND_EVENTS.register(AMBIENT);
-        EntityRegistry.registerModEntity(new ResourceLocation("coolcapybaras", "capybara"), EntityCustom.class, "capybara", EntityId, "coolcapybaras", 64, 3, true, -9680102, -10531559);
     }
 
     public void init(FMLInitializationEvent event) {

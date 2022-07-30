@@ -1,8 +1,11 @@
 package com.nxtdelivery.coolcapybaras;
 
+import com.nxtdelivery.coolcapybaras.entity.EntityCapybara;
+import com.nxtdelivery.coolcapybaras.entity.EntityGort;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -21,6 +24,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -95,6 +99,9 @@ public class CoolCapybaras {
 
     @SubscribeEvent
     public void registerEntities(RegistryEvent.Register<EntityEntry> event) {
+        EntityRegistry.registerModEntity(new ResourceLocation("coolcapybaras", "capybara"), EntityCapybara.EntityCustom.class, "capybara", 1, "coolcapybaras", 64, 3, true, -9680102, -10531559);
+        EntityRegistry.registerModEntity(new ResourceLocation("coolcapybaras", "gort"), EntityGort.EntityCustom.class, "gort", 3, "coolcapybaras", 64, 3, true, -9680102, -10531559);
+        EntityRegistry.registerModEntity(new ResourceLocation("coolcapybaras", "entitybulletgort"), EntityGort.EntityArrowCustom.class, "entitybulletgort", 4, "coolcapybaras", 64, 1, true);
         event.getRegistry().registerAll(this.elements.getEntities().stream().map(Supplier::get).toArray(EntityEntry[]::new));
     }
 

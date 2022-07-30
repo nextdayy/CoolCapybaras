@@ -59,8 +59,6 @@ public class EntityGort extends ElementsCoolCapybaras.ModElement {
         ForgeRegistries.SOUND_EVENTS.register(SPAWN);
         ForgeRegistries.SOUND_EVENTS.register(STEP);
         ForgeRegistries.SOUND_EVENTS.register(SHOOT);
-        EntityRegistry.registerModEntity(new ResourceLocation("coolcapybaras", "gort"), EntityCustom.class, "gort", EntityID, "coolcapybaras", 64, 3, true, -9680102, -10531559);
-        EntityRegistry.registerModEntity(new ResourceLocation("coolcapybaras", "entitybulletgort"), EntityArrowCustom.class, "entitybulletgort", EntityId_Ranged, "coolcapybaras", 64, 1, true);
         //this.elements.entities.add(() -> {
         //    return EntityRegistry.create().entity(EntityCustom.class).id(new ResourceLocation("coolcapybaras", "gort"), 3).name("gort").tracker(64, 3, true).egg(-1, -1).build();
         //});

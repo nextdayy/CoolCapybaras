@@ -32,9 +32,6 @@ group = "com.nextdaydelivery"
 base {
     archivesName.set("$mod_id-$platform")
 }
-loom {
-    noServerRunConfigs()
-}
 
 val shade: Configuration by configurations.creating {
     configurations.implementation.get().extendsFrom(this)
@@ -115,8 +112,8 @@ tasks {
         manifest {
             attributes(
                 mapOf(
-                    "ModSide" to "CLIENT",
                     "ForceLoadAsMod" to true,
+                    "FMLCorePluginContainsFMLMod" to true
                 )
             )
         }
